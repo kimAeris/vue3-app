@@ -1,22 +1,17 @@
 <template>
+  <v-btn @click="btnClick()"> Open Dialog </v-btn>
   <HelloWorld />
-  <v-combobox
-    label="Combobox"
-    :items="['California', 'Colorado', 'Florida', 'Georgia', 'Texas', 'Wyoming']"
-  ></v-combobox>
 </template>
 
-<script>
-import { defineComponent } from 'vue'
-
+<script setup>
 // Components
-import HelloWorld from '../components/HelloWorld.vue'
+import HelloWorld from '../components/HelloWorld.vue';
 
-export default defineComponent({
-  name: 'HomeView',
+import { useFeedback } from '@stores/feedbackStore.js';
 
-  components: {
-    HelloWorld
-  }
-})
+const { openFeedback } = useFeedback();
+
+const btnClick = async () => {
+  await openFeedback('primary', 'test', 'test1', 'test2', 'text3');
+};
 </script>
