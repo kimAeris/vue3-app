@@ -1,6 +1,9 @@
 import axios from 'axios';
 import dayjs from 'dayjs';
 import router from '@/routes';
+import { useMenu } from '@stores/menuStore.js';
+import { useUser } from '@stores/userStore.js';
+import { useFeedback } from '@stores/feedbackStore.js';
 import { dateFormatting } from '@/utils/days';
 
 const LAST_ACTION_KEY = 'lastAction';
@@ -18,7 +21,7 @@ const getFeedback = (type, title, message, cancel, confirm) => {
 };
 
 const refreshStore = () => {
-  const menuStore = userMenu();
+  const menuStore = useMenu();
   const userStore = useUser();
 
   userStore.user = {};
