@@ -1,23 +1,38 @@
 <template>
-  <div class="text-center pa-4">
-    <v-dialog v-model="visible" max-width="400" persistent>
-      <template v-slot:activator="{ props: activatorProps }">
-        <v-btn v-bind="activatorProps"> Open Dialog </v-btn>
-      </template>
+  <VDialog v-model="visible" width="auto" persistent>
+    <VCard min-width="320px" max-width="400px">
+      <VCard
+        :color="type"
+        height="132px"
+        class="d-flex justify-center align-center"
+        rounded="0"
+      >
+        <VIcon VIcon size="x-large" :icon="icon" style="font-size: '112px'">
+        </VIcon>
+      </VCard>
 
-      <v-card prepend-icon="mdi-map-marker" :text="content" :title="title">
-        <template v-slot:actions>
-          <v-spacer></v-spacer>
-          {{ type }}
-          {{ icon }}
+      <VCardItem class="px-6">
+        <VCardTitle> {{ title }} </VCardTitle>
+      </VCardItem>
 
-          <v-btn @click="feedback.cancel"> {{ cancelButtonText }} </v-btn>
+      <VCardText> {{ content }} </VCardText>
 
-          <v-btn @click="feedback.confirm"> {{ confirmButton }} </v-btn>
-        </template>
-      </v-card>
-    </v-dialog>
-  </div>
+      <VCardActions class="justify-end px-6 pt-0">
+        <v-btn v-if="cancelButtonText" @click="feedback.cancel">
+          {{ cancelButtonText }}
+        </v-btn>
+
+        <v-btn
+          v-if="confirmButton"
+          @click="feedback.confirm"
+          class="ml-3"
+          :color="confirmButton.type"
+        >
+          {{ confirmButton }}
+        </v-btn>
+      </VCardActions>
+    </VCard>
+  </VDialog>
 </template>
 
 <script setup>
