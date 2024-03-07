@@ -45,8 +45,6 @@ npm run lint
 > 옵션 참고  
 > https://persistent-weed-dev.tistory.com/entry/%EC%BD%94%EB%93%9C%EB%A5%BC-%EB%8D%94-%EC%9D%B4%EC%81%98%EA%B2%8C-Prettier
 
-```
-
 ## Axios
 
 ### withCredentials
@@ -60,4 +58,3 @@ withCredentials 옵션은 단어의 의미에서 알 수 있듯이, 서로 다�
 > 1.  일반적으로 쿠키를 사용하여 사용자 세션을 관리하는 경우, 클라이언트와 서버 간에 쿠키를 주고받아야 한다. 이 때, withCredentials를 사용하여 쿠키를 전송하면 사용자의 로그인 상태를 유지할 수 있다.
 > 2.  클라이언트와 서버가 다른 도메인에 위치하는 경우 (CORS 상황), 쿠키와 인증 정보를 함께 전송해야 하는 경우에 withCredentials를 사용한다. 이를 통해 다른 도메인의 서버와 안전하게 통신할 수 있다.
 > 3.  특정 API 요청이 인증이 필요한 경우, 쿠키에 저장된 토큰 또는 세션 정보를 사용하여 인증을 수행할 수 있다. 이 때 withCredentials를 사용하여 요청에 쿠키를 포함시킬 수 있다.
-```
